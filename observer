@@ -1,27 +1,20 @@
-# Classe sujeito (subject)
-class Sujeito:
-    def __init__(self):
-        self._observadores = []
+-- Criar o banco de dados INSS
+CREATE DATABASE INSS;
 
-    def registrar_observador(self, observador):
-        self._observadores.append(observador)
+-- Usar o banco de dados INSS
+\c INSS;
 
-    def remover_observador(self, observador):
-        self._observadores.remove(observador)
-
-    def notificar_observadores(self, dados):
-        for observador in self._observadores:
-            observador.atualizar(dados)
-
-# Classe abstrata Observador
-class Observador:
-    def atualizar(self, dados):
-        pass
-
-# Classe para dados de benefícios
-class DadosBeneficios:
-    def __init__(self):
-        self.dados = {}
-
-    def atualizar_dados(self, novos_dados):
-        self.dados = novos_dados
+-- Criar a tabela Beneficios
+CREATE TABLE Beneficios (
+    Competencia DATE,
+    Especie VARCHAR(100),
+    COD VARCHAR(20),
+    CID VARCHAR(100),
+    Despacho VARCHAR(100),
+    DataNascimento DATE,
+    Sexo CHAR(1),
+    MunicipioResidencia VARCHAR(100),
+    Dependentes VARCHAR(100),
+    Filiação VARCHAR(200),
+    UF CHAR(2)
+);
